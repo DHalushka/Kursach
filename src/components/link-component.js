@@ -1,5 +1,5 @@
 import appConstants from '../common/constants'
-import { render } from '../router'
+import { goTo } from '../router'
 
 class LinkComponent extends HTMLElement {
     constructor(){
@@ -45,8 +45,7 @@ class LinkComponent extends HTMLElement {
         e.preventDefault()
         if(!this.selected){
             const { pathname: path} = new URL(e.target.href)
-            window.history.pushState({path}, path, path)
-            render(path)
+            goTo(path)
         }
     }
 
